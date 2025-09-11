@@ -1,0 +1,7 @@
+Menu de Funcionalidades
+4 - Atribuir Pedido a Motorista (Gerar Entrega)
+5 - Registrar Evento de Entrega (Histórico)
+6 - Atualizar Status da Entrega
+7 - Listar Todas as Entregas com Cliente e Motorista
+12 - Buscar Pedido por CPF/CNPJ do Cliente
+0 - Sair
