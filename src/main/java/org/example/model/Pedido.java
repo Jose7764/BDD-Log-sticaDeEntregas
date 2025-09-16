@@ -1,73 +1,109 @@
 package org.example.model;
 
+import java.sql.Date;
 import java.time.LocalDate;
 
 public class Pedido {
-
     private int id;
-    private int idCliente;
-    private LocalDate dataPedido;
-    private double volumeM3;
-    private double pesoKg;
-    private StatusEnum status;
+    private Cliente cliente;
+    private LocalDate data;
+    private double volume;
+    private double peso;
+    private StatusPedido statusPedido;
 
-    public enum StatusEnum {
-        PENDENTE, ENTREGUE, CANCELADO
+    public enum StatusPedido{
+        PENDENTE,
+        ENTREGUE,
+        CANCELADO
     }
 
-
-    public Pedido(int idCliente ,LocalDate dataPedido, double volumeM3, double pesoKg, StatusEnum status) {
-
-        this.idCliente = idCliente;
-        this.dataPedido = dataPedido;
-        this.volumeM3 = volumeM3;
-        this.pesoKg = pesoKg;
-        this.status = status;
-    }
-
-
-    public Pedido(int id, int idCliente, LocalDate dataPedido, double volumeM3, double pesoKg, StatusEnum status) {
+    public Pedido(int id, Cliente cliente, LocalDate data, double volume, double peso, StatusPedido statusPedido) {
         this.id = id;
-        this.idCliente = idCliente;
-        this.dataPedido = dataPedido;
-        this.volumeM3 = volumeM3;
-        this.pesoKg = pesoKg;
-        this.status = status;
+        this.cliente = cliente;
+        this.data = data;
+        this.volume = volume;
+        this.peso = peso;
+        this.statusPedido = statusPedido;
     }
 
+    public Pedido(int id, LocalDate data, double volume, double peso, StatusPedido statusPedido) {
+        this.id = id;
+        this.data = data;
+        this.volume = volume;
+        this.peso = peso;
+        this.statusPedido = statusPedido;
+    }
 
+    public Pedido(Cliente cliente, LocalDate data, double volume, double peso, StatusPedido statusPedido) {
+        this.cliente = cliente;
+        this.data = data;
+        this.volume = volume;
+        this.peso = peso;
+        this.statusPedido = statusPedido;
+    }
 
-    public int getIdCliente() {
-        return idCliente;
+    public Pedido(int id){
+        this.id = id;
     }
-    public LocalDate getDataPedido() {
-        return dataPedido;
+
+    @Override
+    public String toString() {
+        return "PEDIDO" +
+                "\nID: " + id +
+                "\nCliente: " + cliente +
+                "\nData do pedido: " + data +
+                "\nVolume: " + volume +
+                "\nPeso: " + peso +
+                "\nStatus: " + statusPedido;
     }
-    public double getVolumeM3() {
-        return volumeM3;
+
+    public int getId() {
+        return id;
     }
-    public double getPesoKg() {
-        return pesoKg;
+
+    public void setId(int id) {
+        this.id = id;
     }
-    public StatusEnum getStatus() {
+
+    public Cliente getCliente() {
+        return cliente;
+    }
+
+    public void setCliente(Cliente cliente) {
+        this.cliente = cliente;
+    }
+
+    public Date getData() {
+        Date dt = Date.valueOf(data);
+        return dt;
+    }
+
+    public void setData(LocalDate data) {
+        this.data = data;
+    }
+
+    public double getVolume() {
+        return volume;
+    }
+
+    public void setVolume(double volume) {
+        this.volume = volume;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }
+
+    public String getStatusPedido() {
+        String status = String.valueOf(statusPedido);
         return status;
     }
 
-
-
-    public void setIdCliente(int idCliente) {
-        this.idCliente = idCliente;
-    }
-    public void setDataPedido(LocalDate dataPedido) {
-        this.dataPedido = dataPedido;
-    }
-    public void setVolumeM3(double volumeM3) {
-        this.volumeM3 = volumeM3;
-    }
-    public void setPesoKg(double pesoKg) {
-        this.pesoKg = pesoKg;
-    }
-    public void setStatus(StatusEnum status) {
-        this.status = status;
+    public void setStatusPedido(StatusPedido statusPedido) {
+        this.statusPedido = statusPedido;
     }
 }

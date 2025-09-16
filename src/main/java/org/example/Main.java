@@ -1,26 +1,13 @@
 package org.example;
 
-import org.example.view.interfase;
-import org.example.service.Logistica;
-
+import org.example.view.*;
 import java.sql.SQLException;
 
+import org.example.service.Service;
+
 public class Main {
-    public static void main(String[] args) throws SQLException {
+    public static void main(String[] args) {
 
-        interfase view = new interfase();
-        Logistica service = new Logistica();
-
-        while (true){
-           int opcao = view.menuPrincipal();
-
-           service.tratarMenus(opcao);
-
-           if(opcao == 0){
-               break;
-           }
-
-        }
-
+        Service.opcoes();
     }
 }
